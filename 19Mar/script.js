@@ -1,12 +1,11 @@
 
-const ul = document.querySelector("#peopleList");
+const ul = document.querySelector("ul");
 
-const input = document.querySelector("#input1");
-const inputUni = document.querySelector("#input2");
+const name = document.querySelector("#name");
+const universe = document.querySelector("#universe");
 
+//Input cerca tra i risultati
 const inputFilter = document.querySelector("#input3");
-
-
 
 
 const people = [
@@ -19,18 +18,46 @@ const people = [
     "Eleven - Stranger Things",
   ];
 
-// Stampa dei dati 'People' 
-ul.innerHTML = people.map((element) => `<li>${element}</li>`).join("");
 
-//Aggiungi nuovo personaggio
-document.querySelector('button').addEventListener("click",() => {
-    people.push(input.value + "-" + inputUni.value);
+
+
+// Costruzione Funzione Render con un filter 
+//
+const render = (value = "") => {
+    
+ const results = people.filter((element) => element.toLowerCase().includes(value.toLowerCase()));
+
+  
+ 
+// all'invocazione stampa eseguendo uno split per ogni stringa  
+ul.innerHTML = results.map((element) => element.split(" - ")).map((element) =>
+
+ `<li class="card">
+ <span class="name">${element[0]}</span>  <span class="universe">${element[1]}</span> 
+ </li>`).join("");
+};
+
+
+
+
+
+//Aggiungi nuovo personaggio 
+    document.querySelector('button').addEventListener("click",() => {
+    people.push(`${name.value} - ${universe.value}`);
+    
+    render();
+    
+    name.value = "";
+    universe.value ="";
     
     
-    // Stampa l'array people con il nuovo personaggio aggiunto  
-    ul.innerHTML = people.map((element) => `<li> ${element}</li>`).join("");
+    console.log(people);
     
-}); 
+});  
+
+
+
+
 
 //Filtrami la lista tramite Keyup 
 inputFilter.addEventListener("keyup", ()=> {
@@ -42,4 +69,5 @@ inputFilter.addEventListener("keyup", ()=> {
 });
 
 
+render();
 

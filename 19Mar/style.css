@@ -12,6 +12,11 @@ div {
 
 }
 
+label,
+input {
+  font-size: 16px;
+}
+
 button {
     display: flex;
     margin-top: 25px;
@@ -50,13 +55,25 @@ li {
     background-color: #fcfcfc;
     will-change: transform;
     width: 180px;
-    height: 60px;
+    height: 120px;
     border-radius: 1rem;
     box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(34, 33, 81, 0.01),
     28px 28px 28px 0 rgba(34, 33, 81, 0.25);
     transition: 0.4s ease-in-out transform, 0.3s ease-in-out box-shadow;
 }
 
+.card .name {
+    display: block;
+    
+    font-size: 29px;
+    color: #0070f3;
+    margin-bottom: 5px;
+  }
+  
+.card .universe {
+    
+    font-size: 24px;
+  }
 
 
 
