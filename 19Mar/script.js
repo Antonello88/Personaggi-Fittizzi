@@ -1,6 +1,5 @@
 
 const ul = document.querySelector("ul");
-
 const name = document.querySelector("#name");
 const universe = document.querySelector("#universe");
 
@@ -25,24 +24,20 @@ const people = [
 //
 const render = (value = "") => {
     
- const results = people.filter((element) => element.toLowerCase().includes(value.toLowerCase()));
+    const results = people.filter((element) => element.toLowerCase().includes(value.toLowerCase()));
 
-  
- 
-// all'invocazione stampa eseguendo uno split per ogni stringa  
-ul.innerHTML = results.map((element) => element.split(" - ")).map((element) =>
+    // Esecuzione split per ogni stringa  
+    ul.innerHTML = results.map((element) => element.split(" - ")).map((element) =>
 
- `<li class="card">
- <span class="name">${element[0]}</span>  <span class="universe">${element[1]}</span> 
- </li>`).join("");
+    `<li class="card">
+    <span class="name">${element[0]}</span>  <span class="universe">${element[1]}</span> 
+    </li>`).join("");
 };
 
 
 
-
-
 //Aggiungi nuovo personaggio 
-    document.querySelector('button').addEventListener("click",() => {
+document.querySelector('button').addEventListener("click",() => {
     people.push(`${name.value} - ${universe.value}`);
     
     render();
@@ -50,12 +45,7 @@ ul.innerHTML = results.map((element) => element.split(" - ")).map((element) =>
     name.value = "";
     universe.value ="";
     
-    
-    console.log(people);
-    
 });  
-
-
 
 
 
